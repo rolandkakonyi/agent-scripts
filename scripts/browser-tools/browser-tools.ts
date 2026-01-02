@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --import tsx
 
 /**
  * Minimal Chrome DevTools helpers inspired by Mario Zechner's
@@ -539,7 +539,7 @@ program
       });
 
       // Set up page error listener
-      page.on('pageerror', (error) => {
+      page.on('pageerror', (error: Error) => {
         if (allowedTypes && !allowedTypes.has('pageerror') && !allowedTypes.has('error')) {
           return;
         }
